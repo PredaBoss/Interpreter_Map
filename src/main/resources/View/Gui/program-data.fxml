@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="623.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.Gui.ProgramData">
+   <children>
+      <TextField fx:id="numberOfProgramStates" layoutX="161.0" layoutY="26.0" prefHeight="25.0" prefWidth="35.0" />
+      <Label layoutX="14.0" layoutY="26.0" prefHeight="25.0" prefWidth="147.0" text="Number of program states:" />
+      <TableView fx:id="heapTable" layoutX="24.0" layoutY="105.0" prefHeight="195.0" prefWidth="171.0">
+        <columns>
+          <TableColumn fx:id="address" prefWidth="83.33334636688232" text="Address" />
+          <TableColumn fx:id="valueHeap" prefWidth="86.0" text="Value" />
+        </columns>
+      </TableView>
+      <Label layoutX="78.0" layoutY="66.0" prefHeight="31.0" prefWidth="64.0" text="HeapTable:" />
+      <ListView fx:id="out" layoutX="238.0" layoutY="105.0" prefHeight="195.0" prefWidth="147.0" />
+      <Label layoutX="299.0" layoutY="73.0" prefHeight="18.0" prefWidth="26.0" text="Out:" />
+      <ListView fx:id="fileTable" layoutX="430.0" layoutY="105.0" prefHeight="195.0" prefWidth="147.0" />
+      <Label layoutX="479.0" layoutY="73.0" text="FileTable:" />
+      <ListView fx:id="programStateList" layoutX="654.0" layoutY="248.0" prefHeight="195.0" prefWidth="160.0" />
+      <Label layoutX="667.0" layoutY="211.0" text="Program state identifiers:" />
+      <TableView fx:id="symTable" layoutX="25.0" layoutY="380.0" prefHeight="217.0" prefWidth="294.0">
+        <columns>
+          <TableColumn fx:id="variable" prefWidth="111.0" text="Variable" />
+          <TableColumn fx:id="valueSym" prefWidth="182.0" text="Value" />
+        </columns>
+      </TableView>
+      <ListView fx:id="exeStack" layoutX="358.0" layoutY="380.0" prefHeight="217.0" prefWidth="219.0" />
+      <Label layoutX="108.0" layoutY="345.0" text="SymTable:" />
+      <Label layoutX="443.0" layoutY="345.0" text="ExeStack:" />
+      <Button fx:id="oneStep" layoutX="654.0" layoutY="531.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="160.0" text="Run one step" />
+   </children>
+</AnchorPane>
