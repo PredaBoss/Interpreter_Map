@@ -1,0 +1,58 @@
+package Model.Stmt;
+
+import Exceptions.ExpException;
+import Exceptions.StmtException;
+import Model.Containers.ISemaphore;
+import Model.Containers.MyIDictionary;
+import Model.PrgState;
+import Model.Type.IntType;
+import Model.Type.Type;
+import Model.Value.*;
+import javafx.util.Pair;
+
+import java.io.IOException;
+import java.util.List;
+
+public class AcquireStmt implements IStmt{
+
+    String var;
+
+    public AcquireStmt(String var) {
+        this.var = var;
+    }
+
+    @Override
+    public PrgState execute(PrgState state) throws ExpException, StmtException, IOException {
+        MyIDictionary<String,Value> symTable = state.getSymTable();
+        ISemaphore semaphore = state.getSemaphore();
+
+        int foundIndex = ((IntValue)symTable.lookup(var)).getVal();
+        if(!semaphore.isDefined(foundIndex))
+            throw new StmtException("The foundIndex was not found in SemaphoreTable!");
+
+        synchronized (semaphore){
+            Pair<Integer, List<Integer> > value = semaphore.lookup(foundIndex);
+            if(value.getKey() > value.getValue().size())
+                semaphore.add(foundIndex,state.getId());
+            else
+                state.getStk().push(this);
+        }
+
+        return null;
+    }
+
+    @Override
+    public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws StmtException, ExpException {
+        Type typevar = typeEnv.lookup(var);
+
+        if(!typevar.equals(new IntType()))
+            throw new StmtException("Acquire: var is not of type int!");
+
+        return typeEnv;
+    }
+
+    @Override
+    public String toString(){
+        return "acquire("+var+");";
+    }
+}

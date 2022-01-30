@@ -1,42 +1,26 @@
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-int v;
-Ref(int) a;
-v=10;
-new( a , 22 );
+Ref(int) v1;
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-int v;
-Ref(int) a;
-v=10;
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
 
@@ -49,44 +33,28 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-int v;
-Ref(int) a;
-v=10;
-new( a , 22 );
+Ref(int) v1;
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-Ref(int) a;
-v=10;
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-v --> 0
 
 Heap:
 
@@ -97,44 +65,28 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-Ref(int) a;
-v=10;
-new( a , 22 );
+Ref(int) v1;
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-v --> 0
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-Ref(int) a;
-v=10;
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-v --> 0
 
 Heap:
 
@@ -145,44 +97,28 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-Ref(int) a;
-v=10;
-new( a , 22 );
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-v --> 0
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-v=10;
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 0
+v1 --> Model.Value.RefValue@7f64c1f9
 
 Heap:
 
@@ -193,44 +129,28 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-v=10;
-new( a , 22 );
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 0
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-v=10;
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 0
+v1 --> Model.Value.RefValue@7f64c1f9
 
 Heap:
 
@@ -241,43 +161,28 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-v=10;
-new( a , 22 );
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 0
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 10
+v1 --> Model.Value.RefValue@7f64c1f9
 
 Heap:
 
@@ -288,42 +193,28 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-new( a , 22 );
+int cnt;
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 10
-
-Heap:
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-new( a , 22 );
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 10
+v1 --> Model.Value.RefValue@7f64c1f9
 
 Heap:
 
@@ -334,21 +225,254 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-new( a , 22 );
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@125df8f6
-v --> 10
+cnt --> 0
+v1 --> Model.Value.RefValue@7f64c1f9
 
 Heap:
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@7f64c1f9
+
+Heap:
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@7f64c1f9
+
+Heap:
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+new( v1 , 1 );
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@7f64c1f9
+
+Heap:
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+createSemaphore(cnt, rH(v1));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+)
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 0
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
 
 Out:
 
@@ -358,20 +482,28 @@ FileTable:
 
 ExeStack:
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
@@ -381,20 +513,28 @@ FileTable:
 
 ExeStack:
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
@@ -404,20 +544,28 @@ FileTable:
 
 ExeStack:
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
@@ -427,20 +575,28 @@ FileTable:
 
 ExeStack:
 fork(
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 )
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
@@ -449,70 +605,42 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
 FileTable:
 
------------------------- PrgState with id 3 ----------------------
+------------------------ PrgState with id 10 ----------------------
 
 ExeStack:
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
-
-Heap:
-1 --> 22
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
-
-Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
@@ -521,70 +649,42 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-print(v);
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
 FileTable:
 
------------------------- PrgState with id 3 ----------------------
+------------------------ PrgState with id 10 ----------------------
 
 ExeStack:
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 1 ----------------------
-
-ExeStack:
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
-
-Heap:
-1 --> 22
-
-Out:
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-v=32;
-wH( a , 30 );
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
-
-Heap:
-1 --> 22
+1 --> 1
 
 Out:
 
@@ -593,33 +693,586 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-print(rH(a));
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+fork(
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+)
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 1
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 10 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
 
 Out:
 10
 
 FileTable:
 
------------------------- PrgState with id 3 ----------------------
+------------------------ PrgState with id 10 ----------------------
 
 ExeStack:
-wH( a , 30 );
-print(v);
-print(rH(a));
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
 
 Out:
 10
@@ -629,33 +1282,54 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
-print(rH(a));
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 10
 
 Out:
 10
 
 FileTable:
 
------------------------- PrgState with id 3 ----------------------
+------------------------ PrgState with id 10 ----------------------
 
 ExeStack:
-wH( a , 30 );
-print(v);
-print(rH(a));
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
 
 Out:
 10
@@ -665,190 +1339,645 @@ FileTable:
 ------------------------ PrgState with id 1 ----------------------
 
 ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 10
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 22
+1 --> 10
 
 Out:
 10
-22
 
 FileTable:
 
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-wH( a , 30 );
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 22
-
-Out:
-10
-22
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-wH( a , 30 );
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 22
-
-Out:
-10
-22
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 30
-
-Out:
-10
-22
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 30
-
-Out:
-10
-22
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 30
-
-Out:
-10
-22
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-print(v);
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 30
-
-Out:
-10
-22
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 30
-
-Out:
-10
-22
-32
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
-
-ExeStack:
-print(rH(a));
-
-SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
-
-Heap:
-1 --> 30
-
-Out:
-10
-22
-32
-
-FileTable:
-
------------------------- PrgState with id 3 ----------------------
+------------------------ PrgState with id 10 ----------------------
 
 ExeStack:
 
 SymTable:
-a --> Model.Value.RefValue@63c0c95a
-v --> 32
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
 
 Heap:
-1 --> 30
+1 --> 10
 
 Out:
 10
-22
-32
-30
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+acquire(cnt);
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+print(rH(v1)-1);
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+acquire(cnt);
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 1 ----------------------
+
+ExeStack:
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*10 );
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 10
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 100
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 100
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 100
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+wH( v1 , rH(v1)*2 );
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 100
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+print(rH(v1));
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+200
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+release(cnt);
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+200
+
+FileTable:
+
+------------------------ PrgState with id 2 ----------------------
+
+ExeStack:
+
+SymTable:
+cnt --> 1
+v1 --> Model.Value.RefValue@125f8a1e
+
+Heap:
+1 --> 200
+
+Out:
+10
+9
+200
 
 FileTable:
 

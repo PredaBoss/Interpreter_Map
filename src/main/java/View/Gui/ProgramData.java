@@ -23,6 +23,7 @@ import Model.Value.Value;
 import Model.Value.StringValue;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Pair;
 
 public class ProgramData implements Initializable {
 
@@ -36,6 +37,18 @@ public class ProgramData implements Initializable {
 
     @FXML
     private TableColumn<HeapPair,String> valueHeap;
+
+    @FXML
+    private TableView<SemPair> semTable;
+
+    @FXML
+    private TableColumn<SemPair,String> index;
+
+    @FXML
+    private TableColumn<SemPair,String> valueSem;
+
+    @FXML
+    private TableColumn<SemPair,String> listSem;
 
     @FXML
     private ListView<String> out;
@@ -70,8 +83,12 @@ public class ProgramData implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         address.setCellValueFactory(new PropertyValueFactory<HeapPair,String>("address"));
         valueHeap.setCellValueFactory(new PropertyValueFactory<HeapPair,String>("valueHeap"));
+        index.setCellValueFactory(new PropertyValueFactory<SemPair,String>("index"));
+        valueSem.setCellValueFactory(new PropertyValueFactory<SemPair,String>("valueSem"));
+        listSem.setCellValueFactory(new PropertyValueFactory<SemPair,String>("listSem"));
         variable.setCellValueFactory(new PropertyValueFactory<SymPair,String>("variable"));
         valueSym.setCellValueFactory(new PropertyValueFactory<SymPair,String>("valueSym"));
+        semTable.setItems(FXCollections.observableList(new ArrayList<SemPair>()));
         heapTable.setItems(FXCollections.observableList(new ArrayList<HeapPair>()));
 
         oneStep.setOnAction(actionEvent -> {
@@ -120,6 +137,7 @@ public class ProgramData implements Initializable {
         populateOutput();
         populateSymbolTable();
         populateExecutionStack();
+        populateSemTable();
     }
 
     private void populateHeap() {
@@ -171,5 +189,13 @@ public class ProgramData implements Initializable {
             }
         exeStack.setItems(FXCollections.observableList(executionStackListAsString));
         exeStack.refresh();
+    }
+
+    private void populateSemTable(){
+        Map<Integer, Pair<Integer,List<Integer> > > semaphore = controller.getPrgStates().get(0).getSemaphore().getContent();
+        ObservableList<SemPair> semTableList = FXCollections.observableArrayList();
+        semaphore.keySet().forEach(key->{semTableList.add(new SemPair(key,semaphore.get(key)));});
+        semTable.setItems(FXCollections.observableList(semTableList));
+        semTable.refresh();
     }
 }

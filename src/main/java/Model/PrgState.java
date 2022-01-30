@@ -7,9 +7,11 @@ import Model.Containers.*;
 import Model.Stmt.IStmt;
 import Model.Value.StringValue;
 import Model.Value.Value;
+import javafx.util.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -21,6 +23,7 @@ public class PrgState {
     MyIList<Value> out;
     IFileTable<StringValue, BufferedReader> fileTable;
     IHeap<Integer,Value> heap;
+    ISemaphore semaphore;
     IStmt   originalProgram; //optional field, but good to have
     private static final TreeSet<Integer> ids = new TreeSet<>();
     private final Integer id;
@@ -31,18 +34,20 @@ public class PrgState {
         exeStack = new MyStack<>();
         fileTable = new FileTable<>();
         heap = new Heap<>();
+        semaphore = new Semaphore();
         id = newId();
 
         //originalProgram=deepCopy(prg);//recreate the entire original prg
         exeStack.push(prg);
     }
 
-    public PrgState(MyIStack<IStmt> exeStack ,MyIDictionary<String, Value> symTable,MyIList<Value> out,IFileTable<StringValue, BufferedReader> fileTable,IHeap<Integer,Value> heap){
+    public PrgState(MyIStack<IStmt> exeStack ,MyIDictionary<String, Value> symTable,MyIList<Value> out,IFileTable<StringValue, BufferedReader> fileTable,IHeap<Integer,Value> heap, ISemaphore semaphore){
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
         this.fileTable = fileTable;
         this.heap = heap;
+        this.semaphore = semaphore;
         id = newId();
     }
 
@@ -68,6 +73,10 @@ public class PrgState {
 
     public MyIList<Value> getOut(){
         return out;
+    }
+
+    public ISemaphore getSemaphore() {
+        return semaphore;
     }
 
     public IFileTable<StringValue,BufferedReader> getFileTable(){
