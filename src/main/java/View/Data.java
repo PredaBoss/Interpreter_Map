@@ -41,6 +41,9 @@ public class Data {
         IStmt ex8 = new CompStmt(new VarDeclStmt("v", new IntType()), new CompStmt(new VarDeclStmt("a", new RefType(new IntType())), new CompStmt(new AssignStmt("v", new ValueExp(new IntValue(10))), new CompStmt(new NewStmt("a", new ValueExp(new IntValue(22))), new CompStmt(new ForkStmt(new CompStmt(new AssignStmt("v", new ValueExp(new IntValue(32))),new CompStmt(new WHStmt("a", new ValueExp(new IntValue(30))), new CompStmt(new PrintStmt(new VarExp("v")), new PrintStmt(new RHExp(new VarExp("a"))))))), new CompStmt(new PrintStmt(new VarExp("v")), new PrintStmt(new RHExp(new VarExp("a")))))))));
         programs.add(ex8);
 
+        IStmt ex9 = new CompStmt(new VarDeclStmt("a",new RefType(new IntType())),new CompStmt(new VarDeclStmt("b",new RefType(new IntType())),new CompStmt(new VarDeclStmt("v",new IntType()),new CompStmt(new NewStmt("a",new ValueExp(new IntValue(0))),new CompStmt(new NewStmt("b",new ValueExp(new IntValue(0))),new CompStmt(new WHStmt("a",new ValueExp(new IntValue(1))),new CompStmt(new WHStmt("b",new ValueExp(new IntValue(2))),new CompStmt(new CondAssignStmt("v",new RelationalExp(new RHExp(new VarExp("a")),"<",new RHExp(new VarExp("b"))),new ValueExp(new IntValue(100)),new ValueExp(new IntValue(200))),new CompStmt(new PrintStmt(new VarExp("v")),new CompStmt(new CondAssignStmt("v",new RelationalExp(new ArithExp('-',new RHExp(new VarExp("b")),new ValueExp(new IntValue(2))),">",new RHExp(new VarExp("a"))),new ValueExp(new IntValue(100)),new ValueExp(new IntValue(200))),new PrintStmt(new VarExp("v"))))))))))));
+        programs.add(ex9);
+
         return programs;
     }
 }
