@@ -38,6 +38,15 @@ public class ProgramData implements Initializable {
     private TableColumn<HeapPair,String> valueHeap;
 
     @FXML
+    private TableView<LockPair> lockTable;
+
+    @FXML
+    private TableColumn<LockPair,String> locationLock;
+
+    @FXML
+    private TableColumn<LockPair,String> valueLock;
+
+    @FXML
     private ListView<String> out;
 
     @FXML
@@ -70,8 +79,11 @@ public class ProgramData implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         address.setCellValueFactory(new PropertyValueFactory<HeapPair,String>("address"));
         valueHeap.setCellValueFactory(new PropertyValueFactory<HeapPair,String>("valueHeap"));
+        locationLock.setCellValueFactory(new PropertyValueFactory<LockPair,String>("locationLock"));
+        valueLock.setCellValueFactory(new PropertyValueFactory<LockPair,String>("valueLock"));
         variable.setCellValueFactory(new PropertyValueFactory<SymPair,String>("variable"));
         valueSym.setCellValueFactory(new PropertyValueFactory<SymPair,String>("valueSym"));
+        lockTable.setItems(FXCollections.observableList(new ArrayList<LockPair>()));
         heapTable.setItems(FXCollections.observableList(new ArrayList<HeapPair>()));
 
         oneStep.setOnAction(actionEvent -> {
@@ -120,6 +132,7 @@ public class ProgramData implements Initializable {
         populateOutput();
         populateSymbolTable();
         populateExecutionStack();
+        populateLock();
     }
 
     private void populateHeap() {
@@ -171,5 +184,13 @@ public class ProgramData implements Initializable {
             }
         exeStack.setItems(FXCollections.observableList(executionStackListAsString));
         exeStack.refresh();
+    }
+
+    private void populateLock() {
+        Map<Integer,Integer> lock = controller.getPrgStates().get(0).getLock().getContent();
+        ObservableList<LockPair> lockTableList = FXCollections.observableArrayList();
+        lock.keySet().forEach(key->{lockTableList.add(new LockPair(key,lock.get(key)));});
+        lockTable.setItems(FXCollections.observableList(lockTableList));
+        lockTable.refresh();
     }
 }

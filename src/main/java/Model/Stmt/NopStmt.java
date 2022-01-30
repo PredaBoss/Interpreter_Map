@@ -18,4 +18,9 @@ public class NopStmt implements IStmt {
     public MyIDictionary<String, Type> typecheck(MyIDictionary<String, Type> typeEnv) throws StmtException, ExpException {
         return typeEnv;
     }
+
+    @Override
+    public String toString(){
+        return "nop;";
+    }
 }

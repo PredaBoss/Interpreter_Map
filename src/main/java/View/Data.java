@@ -41,6 +41,38 @@ public class Data {
         IStmt ex8 = new CompStmt(new VarDeclStmt("v", new IntType()), new CompStmt(new VarDeclStmt("a", new RefType(new IntType())), new CompStmt(new AssignStmt("v", new ValueExp(new IntValue(10))), new CompStmt(new NewStmt("a", new ValueExp(new IntValue(22))), new CompStmt(new ForkStmt(new CompStmt(new AssignStmt("v", new ValueExp(new IntValue(32))),new CompStmt(new WHStmt("a", new ValueExp(new IntValue(30))), new CompStmt(new PrintStmt(new VarExp("v")), new PrintStmt(new RHExp(new VarExp("a"))))))), new CompStmt(new PrintStmt(new VarExp("v")), new PrintStmt(new RHExp(new VarExp("a")))))))));
         programs.add(ex8);
 
+        IStmt ex9 = new CompStmt(new VarDeclStmt("v1",new RefType(new IntType())),
+                new CompStmt(new VarDeclStmt("v2",new RefType(new IntType())),
+                        new CompStmt(new VarDeclStmt("x",new IntType()),
+                                new CompStmt(new VarDeclStmt("q",new IntType()),
+                                        new CompStmt(new NewStmt("v1",new ValueExp(new IntValue(20))),
+                                                new CompStmt(new NewStmt("v2", new ValueExp(new IntValue(30))),
+                                                        new CompStmt(new NewLockStmt("x"),
+                                                                new CompStmt(
+                                                                        new ForkStmt(new CompStmt(
+                                                                            new ForkStmt(new CompStmt(new LockStmt("x"),
+                                                                                new CompStmt(new WHStmt("v1",new ArithExp('-',new RHExp(new VarExp("v1")),new ValueExp(new IntValue(1)))),new UnlockStmt("x"))
+                                                                            )
+                                                                            ),
+                                                                        new CompStmt(new LockStmt("x"),
+                                                                                new CompStmt(new WHStmt("v1",new ArithExp('*',new RHExp(new VarExp("v1")),new ValueExp(new IntValue(10)))),new UnlockStmt("x")))
+                                                                        )
+                                                                        ),
+                                                                        new CompStmt(new NewLockStmt("q"),
+                                                                                new CompStmt(
+                                                                                        new ForkStmt(new CompStmt(
+                                                                                                new ForkStmt(new CompStmt(new LockStmt("q"),new CompStmt(new WHStmt("v2",new ArithExp('+',new RHExp(new VarExp("v2")),new ValueExp(new IntValue(5)))),new UnlockStmt("q")))
+                                                                                                ),
+                                                                                                new CompStmt(new LockStmt("q"),new CompStmt(new WHStmt("v2",new ArithExp('*',new RHExp(new VarExp("v2")),new ValueExp(new IntValue(10)))),new UnlockStmt("q")))
+                                                                                        )),
+                                                                                        new CompStmt(new NopStmt(),new CompStmt(new NopStmt(),new CompStmt(new NopStmt(),new CompStmt(new NopStmt(),
+                                                                                                new CompStmt(new LockStmt("x"),
+                                                                                                        new CompStmt(new PrintStmt(new RHExp(new VarExp("v1"))),
+                                                                                                                new CompStmt(new UnlockStmt("x"),
+                                                                                                                        new CompStmt(new LockStmt("q"),
+                                                                                                                                new CompStmt(new PrintStmt(new RHExp(new VarExp("v2"))), new UnlockStmt("q"))))))))))))))))))));
+        programs.add(ex9);
+
         return programs;
     }
 }

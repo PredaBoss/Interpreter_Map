@@ -21,6 +21,7 @@ public class PrgState {
     MyIList<Value> out;
     IFileTable<StringValue, BufferedReader> fileTable;
     IHeap<Integer,Value> heap;
+    ILock<Integer,Integer> lock;
     IStmt   originalProgram; //optional field, but good to have
     private static final TreeSet<Integer> ids = new TreeSet<>();
     private final Integer id;
@@ -31,18 +32,20 @@ public class PrgState {
         exeStack = new MyStack<>();
         fileTable = new FileTable<>();
         heap = new Heap<>();
+        lock = new Lock<>();
         id = newId();
 
         //originalProgram=deepCopy(prg);//recreate the entire original prg
         exeStack.push(prg);
     }
 
-    public PrgState(MyIStack<IStmt> exeStack ,MyIDictionary<String, Value> symTable,MyIList<Value> out,IFileTable<StringValue, BufferedReader> fileTable,IHeap<Integer,Value> heap){
+    public PrgState(MyIStack<IStmt> exeStack ,MyIDictionary<String, Value> symTable,MyIList<Value> out,IFileTable<StringValue, BufferedReader> fileTable,IHeap<Integer,Value> heap,ILock<Integer,Integer> lock){
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
         this.fileTable = fileTable;
         this.heap = heap;
+        this.lock = lock;
         id = newId();
     }
 
@@ -75,6 +78,10 @@ public class PrgState {
     }
 
     public IHeap<Integer, Value> getHeap() { return heap; }
+
+    public ILock<Integer, Integer> getLock() {
+        return lock;
+    }
 
     public Integer getId() { return id; }
 
