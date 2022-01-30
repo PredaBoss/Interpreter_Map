@@ -30,7 +30,7 @@ public class ForkStmt implements IStmt{
         IHeap<Integer,Value> heap = state.getHeap();
 
 
-        return new PrgState(exeStack,symTable,out,fileTable,heap);
+        return new PrgState(exeStack,symTable,out,fileTable,heap,state.getLatchTable());
     }
 
     @Override

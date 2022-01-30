@@ -38,6 +38,15 @@ public class ProgramData implements Initializable {
     private TableColumn<HeapPair,String> valueHeap;
 
     @FXML
+    private TableView<LatchPair> latchTable;
+
+    @FXML
+    private TableColumn<LatchPair,String> locationLatch;
+
+    @FXML
+    private TableColumn<LatchPair,String> valueLatch;
+
+    @FXML
     private ListView<String> out;
 
     @FXML
@@ -72,6 +81,9 @@ public class ProgramData implements Initializable {
         valueHeap.setCellValueFactory(new PropertyValueFactory<HeapPair,String>("valueHeap"));
         variable.setCellValueFactory(new PropertyValueFactory<SymPair,String>("variable"));
         valueSym.setCellValueFactory(new PropertyValueFactory<SymPair,String>("valueSym"));
+        locationLatch.setCellValueFactory(new PropertyValueFactory<LatchPair,String>("location"));
+        valueLatch.setCellValueFactory(new PropertyValueFactory<LatchPair,String>("valueLatch"));
+        latchTable.setItems(FXCollections.observableList(new ArrayList<LatchPair>()));
         heapTable.setItems(FXCollections.observableList(new ArrayList<HeapPair>()));
 
         oneStep.setOnAction(actionEvent -> {
@@ -120,6 +132,7 @@ public class ProgramData implements Initializable {
         populateOutput();
         populateSymbolTable();
         populateExecutionStack();
+        populateLatchTable();
     }
 
     private void populateHeap() {
@@ -171,5 +184,13 @@ public class ProgramData implements Initializable {
             }
         exeStack.setItems(FXCollections.observableList(executionStackListAsString));
         exeStack.refresh();
+    }
+
+    private void populateLatchTable(){
+        Map<Integer,Integer> latch = controller.getPrgStates().get(0).getLatchTable().getContent();
+        ObservableList<LatchPair> latchTableList = FXCollections.observableArrayList();
+        latch.keySet().forEach(key->{latchTableList.add(new LatchPair(key,latch.get(key)));});
+        latchTable.setItems(FXCollections.observableList(latchTableList));
+        latchTable.refresh();
     }
 }

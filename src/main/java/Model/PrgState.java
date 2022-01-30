@@ -21,6 +21,7 @@ public class PrgState {
     MyIList<Value> out;
     IFileTable<StringValue, BufferedReader> fileTable;
     IHeap<Integer,Value> heap;
+    ILatchTable<Integer,Integer> latchTable;
     IStmt   originalProgram; //optional field, but good to have
     private static final TreeSet<Integer> ids = new TreeSet<>();
     private final Integer id;
@@ -31,18 +32,20 @@ public class PrgState {
         exeStack = new MyStack<>();
         fileTable = new FileTable<>();
         heap = new Heap<>();
+        latchTable = new LatchTable<>();
         id = newId();
 
         //originalProgram=deepCopy(prg);//recreate the entire original prg
         exeStack.push(prg);
     }
 
-    public PrgState(MyIStack<IStmt> exeStack ,MyIDictionary<String, Value> symTable,MyIList<Value> out,IFileTable<StringValue, BufferedReader> fileTable,IHeap<Integer,Value> heap){
+    public PrgState(MyIStack<IStmt> exeStack ,MyIDictionary<String, Value> symTable,MyIList<Value> out,IFileTable<StringValue, BufferedReader> fileTable,IHeap<Integer,Value> heap, ILatchTable<Integer,Integer> latchTable){
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
         this.fileTable = fileTable;
         this.heap = heap;
+        this.latchTable = latchTable;
         id = newId();
     }
 
@@ -97,5 +100,9 @@ public class PrgState {
                 ", \nout=" + out +
                 ", \noriginalProgram=" + originalProgram +
                 "}\n---------------------------------------------------\n";
+    }
+
+    public ILatchTable<Integer, Integer> getLatchTable() {
+        return latchTable;
     }
 }
