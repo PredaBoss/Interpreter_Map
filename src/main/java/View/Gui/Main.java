@@ -24,7 +24,7 @@ public class Main extends Application {
 
         FXMLLoader programDataLoader = new FXMLLoader(Main.class.getResource("program-data.fxml"));
         Stage dataStage = new Stage();
-        Scene dataScene = new Scene(programDataLoader.load(), 850, 620);
+        Scene dataScene = new Scene(programDataLoader.load(), 1250, 620);
         prgListController.setProgramData(programDataLoader.getController());
         dataStage.setTitle("Run the selected program!");
         dataStage.setScene(dataScene);

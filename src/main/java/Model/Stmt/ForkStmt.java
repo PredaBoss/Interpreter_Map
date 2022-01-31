@@ -28,9 +28,10 @@ public class ForkStmt implements IStmt{
         MyIList<Value> out = state.getOut();
         IFileTable<StringValue, BufferedReader> fileTable = state.getFileTable();
         IHeap<Integer,Value> heap = state.getHeap();
+        ILatchTable<Integer,Integer> latchTable= state.getLatchTable();
 
 
-        return new PrgState(exeStack,symTable,out,fileTable,heap);
+        return new PrgState(exeStack,symTable,out,fileTable,heap,latchTable);
     }
 
     @Override

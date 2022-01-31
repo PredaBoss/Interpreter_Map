@@ -44,6 +44,27 @@ public class Data {
         IStmt ex9 = new CompStmt(new VarDeclStmt("a",new RefType(new IntType())),new CompStmt(new VarDeclStmt("b",new RefType(new IntType())),new CompStmt(new VarDeclStmt("v",new IntType()),new CompStmt(new NewStmt("a",new ValueExp(new IntValue(0))),new CompStmt(new NewStmt("b",new ValueExp(new IntValue(0))),new CompStmt(new WHStmt("a",new ValueExp(new IntValue(1))),new CompStmt(new WHStmt("b",new ValueExp(new IntValue(2))),new CompStmt(new CondAssignStmt("v",new RelationalExp(new RHExp(new VarExp("a")),"<",new RHExp(new VarExp("b"))),new ValueExp(new IntValue(100)),new ValueExp(new IntValue(200))),new CompStmt(new PrintStmt(new VarExp("v")),new CompStmt(new CondAssignStmt("v",new RelationalExp(new ArithExp('-',new RHExp(new VarExp("b")),new ValueExp(new IntValue(2))),">",new RHExp(new VarExp("a"))),new ValueExp(new IntValue(100)),new ValueExp(new IntValue(200))),new PrintStmt(new VarExp("v"))))))))))));
         programs.add(ex9);
 
+        IStmt ex10 = new CompStmt(new VarDeclStmt("v1",new RefType(new IntType())),
+                new CompStmt(new VarDeclStmt("v2",new RefType(new IntType())),
+                        new CompStmt(new VarDeclStmt("v3",new RefType(new IntType())),
+                                new CompStmt(new VarDeclStmt("cnt",new IntType()),
+                                        new CompStmt(new NewStmt("v1",new ValueExp(new IntValue(2))),
+                                                new CompStmt(new NewStmt("v2",new ValueExp(new IntValue(3))),
+                                                        new CompStmt(new NewStmt("v3",new ValueExp(new IntValue(4))),
+                                                                new CompStmt(new NewLatchStmt("cnt",new RHExp(new VarExp("v2"))),
+                                                                        new CompStmt(new ForkStmt(new CompStmt(new WHStmt("v1",new ArithExp('*',new RHExp(new VarExp("v1")),new ValueExp(new IntValue(10)))),
+                                                                                new CompStmt(new PrintStmt(new RHExp(new VarExp("v1"))),
+                                                                                        new CompStmt(new CountDownStmt("cnt"),
+                                                                                                new ForkStmt(new CompStmt(new WHStmt("v2",new ArithExp('*',new RHExp(new VarExp("v2")),new ValueExp(new IntValue(10)))),
+                                                                                                        new CompStmt(new PrintStmt(new RHExp(new VarExp("v2"))),
+                                                                                                                new CompStmt(new CountDownStmt("cnt"),
+                                                                                                                        new ForkStmt(new CompStmt(new WHStmt("v3",new ArithExp('*',new RHExp(new VarExp("v3")),new ValueExp(new IntValue(10)))),
+                                                                                                                                new CompStmt(new PrintStmt(new RHExp(new VarExp("v3"))),new CountDownStmt("cnt")))))))))))),
+                                                                                                        new CompStmt(new AwaitStmt("cnt"),
+                                                                                                                new CompStmt(new PrintStmt(new ValueExp(new IntValue(100))),
+                                                                                                                        new CompStmt(new CountDownStmt("cnt"),new PrintStmt(new ValueExp(new IntValue(100)))))))))))))));
+        programs.add(ex10);
+
         return programs;
     }
 }

@@ -60,6 +60,6 @@ public class CondAssignStmt implements IStmt{
 
     @Override
     public String toString(){
-        return v + "=" + exp1.toString() + "?" + exp2.toString()  + ":" + exp3.toString();
+        return v + "=(" + exp1.toString() + ")?" + exp2.toString()  + ":" + exp3.toString()+";";
     }
 }
