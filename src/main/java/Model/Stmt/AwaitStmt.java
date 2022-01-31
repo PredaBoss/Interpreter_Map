@@ -24,6 +24,9 @@ public class AwaitStmt implements IStmt{
     public PrgState execute(PrgState state) throws ExpException, StmtException, IOException {
         MyIDictionary<String,Value> symTable = state.getSymTable();
         ILatchTable<Integer,Integer> latchTable= state.getLatchTable();
+
+        if(!(symTable.isDefined(var) && (symTable.lookup(var).getType().equals(new IntType()))))
+            throw new StmtException("The variable "+var+" is not defined or its type is not IntType");
         int foundIndex = ((IntValue)symTable.lookup(var)).getVal();
 
         synchronized (latchTable) {

@@ -31,7 +31,12 @@ public class NewLatchStmt implements IStmt{
         IHeap<Integer, Value> heap = state.getHeap();
         ILatchTable<Integer,Integer> latchTable= state.getLatchTable();
 
+        if(!(symTable.isDefined(var) && (symTable.lookup(var).getType().equals(new IntType()))))
+            throw new StmtException("The variable "+var+" is not defined or its type is not IntType");
+
         Value expValue =exp.eval(symTable,heap);
+        if(!expValue.getType().equals(new IntType()))
+            throw new StmtException("The evaluation of expression "+exp+" does not return an IntValue!");
         int num1 = ((IntValue)expValue).getVal();
 
         synchronized (latchTable){
